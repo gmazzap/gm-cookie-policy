@@ -10,7 +10,6 @@
 
 namespace GM\CookiePolicy;
 
-
 /**
  * @author  Giuseppe Mazzapica <giuseppe.mazzapica@gmail.com>
  * @license http://opensource.org/licenses/MIT MIT
@@ -18,7 +17,6 @@ namespace GM\CookiePolicy;
  */
 class Assets
 {
-
     const HANDLE = 'cookie-policy';
 
     /**
@@ -56,6 +54,14 @@ class Assets
             'bg'   => $config['bg-color'],
             'link' => $config['link-color']
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function setupApiScripts()
+    {
+        return $this->shouldUse('scripts-api') ? $this->setupScripts() : false;
     }
 
     /**
@@ -111,9 +117,10 @@ class Assets
      */
     private function shouldUse($which)
     {
-        $use = filter_var($this->use[$which], FILTER_VALIDATE_BOOLEAN);
+        $key = explode('-', $which);
+        $use = filter_var($this->use[$key[0]], FILTER_VALIDATE_BOOLEAN);
 
-        return (bool)apply_filters("cookie-policy.use-{$which}", $use);
+        return (bool) apply_filters("cookie-policy.use-{$which}", $use);
     }
 
     /**
@@ -125,24 +132,26 @@ class Assets
         ob_start();
         ?>
         #gm-cookie-policy {
-        background-color: <?= esc_attr($this->colors['bg']) ?>;
-        color: <?= esc_attr($this->colors['txt']) ?>;
-        border-<?= $border ?>: <?= esc_attr($this->colors['link']) ?> 1px solid;
+            background-color: <?= esc_attr($this->colors['bg']) ?>;
+            color: <?= esc_attr($this->colors['txt']) ?>;
+            border-<?= $border ?>: <?= esc_attr($this->colors['link']) ?> 1px solid;
         }
+        #gm-cookie-policy p,
         #gm-cookie-policy .cookie-policy-msg,
+        #gm-cookie-policy .cookie-policy-msg p,
         #gm-cookie-policy .cookie-policy-msg table,
         #gm-cookie-policy .cookie-policy-msg table p {
-        color: <?= esc_attr($this->colors['txt']) ?>;
+            color: <?= esc_attr($this->colors['txt']) ?>;
         }
+        #gm-cookie-policy a,
+        #gm-cookie-policy .cookie-policy-msg a,
         #gm-cookie-policy .cookie-policy-msg table a {
-        color: <?= esc_attr($this->colors['link']) ?>;
+            color: <?= esc_attr($this->colors['link']) ?>;
         }
         <?php
         $css = ob_get_clean();
         $context = array_merge($this->colors, $this->info);
-        
+
         return apply_filters('cookie-policy.message-inline-css', $css, $context);
-
     }
-
 }
