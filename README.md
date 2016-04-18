@@ -86,6 +86,10 @@ Just like PHP API, neither javascript API lock-in to the plugin. It is possible 
 without breaking anything and also replace the plugin with some other script that may trigger same
 events and set same variable for 100% backward compatibility.
 
+## Translations
+
+The plugin comes with Italian translation. PRs with more translations are welcome.
+
 ## License
 
 MIT.
