@@ -3,8 +3,10 @@
     <form method="post" action="<?= esc_url($this->actionUrl) ?>">
 
         <input type="hidden" name="action" value="<?= esc_attr($this->actionName) ?>">
-        <input type="hidden" name="<?= esc_attr($this->nonceName) ?>"
-               value="<?= esc_attr($this->nonceValue) ?>">
+        <input
+            type="hidden"
+            name="<?= esc_attr($this->nonceName) ?>"
+            value="<?= esc_attr($this->nonceValue) ?>">
 
         <table class="form-table">
             <tbody>
