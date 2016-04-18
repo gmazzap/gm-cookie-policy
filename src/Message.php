@@ -116,6 +116,11 @@ class Message
             'showOn'       => $this->config['show-on'],
         ];
 
-        echo $this->renderer->render(dirname(__DIR__).'/templates/message.php', $data);
+        $template = apply_filters(
+            'cookie-policy.message-template',
+            dirname(__DIR__).'/templates/message.php'
+        );
+
+        echo $this->renderer->render($template, $data);
     }
 }
