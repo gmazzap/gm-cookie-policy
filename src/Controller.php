@@ -95,11 +95,13 @@ class Controller
      * @param \GM\CookiePolicy\Config       $config
      * @param \GM\CookiePolicy\Cookie|null  $cookie
      * @param \GM\CookiePolicy\Message|null $message
+     * @param \GM\CookiePolicy\Assets       $assets
      */
     public function setupFrontendActions(
         Config $config,
         Cookie $cookie = null,
-        Message $message = null
+        Message $message = null,
+        Assets $assets = null
     ) {
         if ($this->isAdmin) {
             return;
@@ -107,8 +109,13 @@ class Controller
 
         $this->loadTextDomain();
 
-        add_action('template_redirect', function () use ($config, $cookie, $message) {
+        add_action('template_redirect', function () use ($config, $cookie, $message, $assets) {
             $cookie or $cookie = new Cookie();
+            $assets or $assets = new Assets($config);
+
+            // Add necessary script according to config
+            add_action('wp_enqueue_scripts', [$assets, 'setupScripts']);
+
             // If the cookie exists, user accepted policy, nothing else to do
             if ($cookie->exists()) {
                 return;
@@ -121,10 +128,11 @@ class Controller
             }
 
             $message or $message = new Message($config, $this->createRenderer($config));
+
             // Add necessary assets according to config
-            add_action('wp_enqueue_scripts', [$message, 'setupAssets']);
+            add_action('wp_enqueue_scripts', [$assets, 'setupStyles']);
             // Render message content
-            add_action('wp_footer', [$message, 'renderTemplate']);
+            add_action('wp_footer', [$message, 'render']);
         });
     }
 
