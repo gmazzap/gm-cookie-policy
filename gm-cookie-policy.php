@@ -47,35 +47,20 @@ add_filter('cookie-policy-accepted', function () {
     return (new Cookie())->exists();
 });
 
-/**
- * Nothing more to do on AJAX requests
- */
-if (defined('DOING_AJAX') && DOING_AJAX) {
-    return;
-};
-
-
-// The plugin "main" routine
-add_action('wp_loaded', function () {
+// Nothing more to do on AJAX requests
+(defined('DOING_AJAX') && DOING_AJAX) or add_action('wp_loaded', function () {
 
     autoload();
 
-    $isAdmin = is_admin();
+    // Controller class is responsible to instantiate objects and attach their methods to proper hooks.
+    $controller = new Controller();
 
     // User accepted policy, let's save a cookie to don't show message again and then return.
-    // This is needed to ensure plugin works when js is disabled.
-    if (
-        ! $isAdmin
-        && filter_input(INPUT_GET, Cookie::ACCEPTED_QUERY, FILTER_VALIDATE_INT) > 0
-    ) {
-        $cookie = new Cookie();
-        $cookie->save();
+    // This is needed to ensure plugin works when js is disabled so cookie have to be set in PHP.
+    $accepted = $controller->maybePolicyAccepted();
+    if ($accepted) {
         return;
     }
-
-    // Load text domain
-    $pathArr = explode(DIRECTORY_SEPARATOR, __DIR__);
-    load_plugin_textdomain('gm-cookie-policy', false, end($pathArr).'/lang');
 
     // Instantiate config class
     $config = new Config(
@@ -86,39 +71,9 @@ add_action('wp_loaded', function () {
         SettingsPage::defaults()
     );
 
-    // Now let's attach routines to proper hooks...
+    // Setup backend actions
+    $controller->setupBackendActions($config);
 
-    // Setup and show setting page
-    $isAdmin and add_action('admin_menu', function () use ($config) {
-        $settings = new SettingsPage($config, new SimpleRenderer());
-        $settings->setup();
-    });
-
-    // Save setting page form when submitted
-    $isAdmin and add_action('admin_post_'.SettingsPage::ACTION, function () use ($config) {
-        $settings = new SettingsPage($config, new SimpleRenderer());
-        $settings->save();
-        exit();
-    });
-
-    // Show cookie policy message when it was not already shown
-    $isAdmin or add_action('template_redirect', function () use ($config) {
-        $cookie = new Cookie();
-        // If the cookie exists, user accepted policy, nothing else to do
-        if ($cookie->exists()) {
-            return;
-        }
-
-        // Avoid show message when in the "Read More" page
-        $moreUrl = rtrim($config['more-url'], '/');
-        if ($moreUrl && $moreUrl === rtrim(esc_url(home_url(add_query_arg([]))), '/')) {
-            return;
-        }
-
-        $message = new Message($config, new SimpleRenderer());
-        // Adding necessary assets according to config
-        add_action('wp_enqueue_scripts', [$message, 'setupAssets']);
-        // Render message content
-        add_action('wp_footer', [$message, 'renderTemplate']);
-    });
+    // Setup frontend action
+    $controller->setupFrontendActions($config);
 });
