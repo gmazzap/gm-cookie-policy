@@ -49,8 +49,7 @@ class SettingsPage
             'show-on'     => 'footer',
             'close-label' => esc_html_x('Close.', 'policy message link text', 'gm-cookie-policy'),
             'more-url'    => '',
-            'more-label'  => esc_html_x('Read more.', 'policy message link text',
-                'gm-cookie-policy'),
+            'more-label'  => esc_html_x('Read more.', 'policy message link text', 'gm-cookie-policy'),
         ];
     }
 
@@ -69,6 +68,12 @@ class SettingsPage
      */
     public function setup()
     {
+        if (! current_user_can($this->config['capability'])) {
+            return;
+        }
+
+        // Setup assets and markup for settings page
+
         add_action('admin_enqueue_scripts', function ($page) {
             if ($page === 'tools_page_'.self::SLUG) {
                 wp_enqueue_style('wp-color-picker');
@@ -90,6 +95,15 @@ class SettingsPage
             }
         );
 
+        add_filter('teeny_mce_buttons', function ($buttons, $editor) {
+            if ($editor === self::EDITOR_ID) {
+                $buttons = ['bold', 'italic', 'bullist', 'numlist', 'hr', 'link', 'unlink'];
+            }
+
+            return $buttons;
+        }, 10, 2);
+
+        // Show error notices if needed
         add_action('current_screen', function (\WP_Screen $screen) {
             $err = filter_input(INPUT_GET, self::ERR_KEY, FILTER_VALIDATE_INT);
             if ($err && ($screen->id === 'tools_page_'.self::SLUG)) {
@@ -100,14 +114,6 @@ class SettingsPage
             }
         });
 
-        add_filter('teeny_mce_buttons', function ($buttons, $editor) {
-            if ($editor === self::EDITOR_ID) {
-                $buttons = ['bold', 'italic', 'bullist', 'numlist', 'hr', 'link', 'unlink'];
-            }
-
-            return $buttons;
-        }, 10, 2);
-
         return $this;
     }
 
@@ -116,6 +122,10 @@ class SettingsPage
      */
     public function save()
     {
+        if (! current_user_can($this->config['capability'])) {
+            return false;
+        }
+
         $url = add_query_arg(['page' => self::SLUG], admin_url('tools.php'));
 
         if (! current_user_can($this->config['capability'])) {
