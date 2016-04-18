@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the elesia package.
+ * This file is part of the gm-cookie-policy package.
  *
  * (c) Giuseppe Mazzapica <giuseppe.mazzapica@gmail.com>
  *
@@ -13,7 +13,7 @@ namespace GM\CookiePolicy;
 /**
  * @author  Giuseppe Mazzapica <giuseppe.mazzapica@gmail.com>
  * @license http://opensource.org/licenses/MIT MIT
- * @package elesia
+ * @package gm-cookie-policy
  */
 interface RendererInterface
 {
