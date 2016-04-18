@@ -1,0 +1,24 @@
+{
+    "name":              "gmazzap/gm-cookie-policy",
+    "license":           "MIT",
+    "description":       "A simple plugin to show a message for compliance with EU cookie law.",
+    "keywords":          [
+        "wordpress",
+        "cookie",
+        "cookie policy"
+    ],
+    "type":              "wordpress-plugin",
+    "minimum-stability": "stable",
+    "require":           {
+        "php": ">=5.4",
+        "composer/installers": "^1.0"
+    },
+    "autoload":          {
+        "psr-4": {
+            "GM\\CookiePolicy\\": "src/"
+        }
+    },
+    "config":            {
+        "optimize-autoloader": true
+    }
+}

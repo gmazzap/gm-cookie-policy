@@ -1,0 +1,22 @@
+#gm-cookie-policy {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 999;
+}
+
+#gm-cookie-policy.cookie-policy-header {
+    top: 0;
+    padding-top: 10px;
+}
+
+#gm-cookie-policy.cookie-policy-footer {
+    bottom: 0;
+    padding-bottom: 10px;
+}
+
+#gm-cookie-policy .cookie-policy-msg {
+    margin: auto;
+    max-width: 760px;
+    padding: 10px;
+}
