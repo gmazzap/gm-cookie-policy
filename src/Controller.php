@@ -112,27 +112,28 @@ class Controller
         add_action('template_redirect', function () use ($config, $cookie, $message, $assets) {
             $cookie or $cookie = new Cookie();
             $assets or $assets = new Assets($config);
+            $exists = $cookie->exists();
+            /** @var callable $setupScripts */
+            $setupScripts = $exists ? [$assets, 'setupApiScripts'] : [$assets, 'setupScripts'];
 
             // Add necessary script according to config
-            add_action('wp_enqueue_scripts', [$assets, 'setupScripts']);
+            add_action('wp_enqueue_scripts', $setupScripts);
 
             // If the cookie exists, user accepted policy, nothing else to do
-            if ($cookie->exists()) {
+            if ($exists) {
                 return;
             }
 
             // Avoid show message when in the "Read More" page
             $moreUrl = rtrim($config['more-url'], '/');
-            if ($moreUrl && $moreUrl === rtrim(esc_url(home_url(add_query_arg([]))), '/')) {
-                return;
+            if (!$moreUrl || $moreUrl !== rtrim(esc_url(home_url(add_query_arg([]))), '/')) {
+                $message or $message = new Message($config, $this->createRenderer($config));
+
+                // Add necessary assets according to config
+                add_action('wp_enqueue_scripts', [$assets, 'setupStyles']);
+                // Render message content
+                add_action('wp_footer', [$message, 'render']);
             }
-
-            $message or $message = new Message($config, $this->createRenderer($config));
-
-            // Add necessary assets according to config
-            add_action('wp_enqueue_scripts', [$assets, 'setupStyles']);
-            // Render message content
-            add_action('wp_footer', [$message, 'render']);
         });
     }
 
