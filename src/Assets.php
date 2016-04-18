@@ -103,7 +103,7 @@ class Assets
                 'screen'
             );
 
-            wp_add_inline_style('cookie-policy', $this->inlineStyle());
+            wp_add_inline_style(self::HANDLE, $this->inlineStyle());
 
             return true;
         }
