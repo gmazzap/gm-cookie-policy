@@ -4,117 +4,128 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gm-cookie-policy\n"
-"POT-Creation-Date: 2016-04-18 12:30+0100\n"
-"PO-Revision-Date: 2016-04-18 12:30+0100\n"
+"POT-Creation-Date: 2016-04-20 18:39+0100\n"
+"PO-Revision-Date: 2016-04-20 18:39+0100\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: plurals=2; plural=(n > 1)\n"
-"Language: it_IT\n"
+"X-Generator: Eazy Po 0.9.5.3\n"
 
-#: src/SettingsPage.php:50
+#: src/SettingsPage.php:51
 msgctxt "policy message link text"
 msgid "Close."
 msgstr "Chiudi."
 
-#: src/SettingsPage.php:52
+#: src/SettingsPage.php:53
 msgctxt "policy message link text"
 msgid "Read more."
 msgstr "Maggiori Informazioni."
 
-#: src/SettingsPage.php:81
+#: src/SettingsPage.php:87
 msgctxt "setting title"
 msgid "Cookie Policy Settings"
 msgstr "Impostazioni Cookie Policy"
 
-#: src/SettingsPage.php:82
+#: src/SettingsPage.php:88
 msgid "Cookie Policy"
 msgstr "Cookie Policy"
 
-#: src/SettingsPage.php:173
+#: src/SettingsPage.php:185
+msgctxt "form label"
+msgid "Enable"
+msgstr "Abilita"
+
+#: src/SettingsPage.php:186
 msgctxt "form label"
 msgid "Message"
 msgstr "Messaggio"
 
-#: src/SettingsPage.php:174
+#: src/SettingsPage.php:187
 msgctxt "form label"
 msgid "Use Styles"
 msgstr "Usa Stili"
 
-#: src/SettingsPage.php:175
+#: src/SettingsPage.php:188
 msgctxt "form label"
 msgid "Use Script"
 msgstr "Usa Script"
 
-#: src/SettingsPage.php:176
+#: src/SettingsPage.php:189
 msgctxt "form label"
 msgid "Background Color"
 msgstr "Colore Sfondo"
 
-#: src/SettingsPage.php:177
+#: src/SettingsPage.php:190
 msgctxt "form label"
 msgid "Link Color"
 msgstr "Colore Link"
 
-#: src/SettingsPage.php:178
+#: src/SettingsPage.php:191
 msgctxt "form label"
 msgid "Text Color"
 msgstr "Colore Testo"
 
-#: src/SettingsPage.php:179
+#: src/SettingsPage.php:192
 msgctxt "form label"
 msgid "Position"
 msgstr "Posizione"
 
-#: src/SettingsPage.php:180
+#: src/SettingsPage.php:193
 msgctxt "form label"
 msgid "Header"
 msgstr "Testata"
 
-#: src/SettingsPage.php:181
+#: src/SettingsPage.php:194
 msgctxt "form label"
 msgid "Footer"
 msgstr "Pié di pagina"
 
-#: src/SettingsPage.php:182
+#: src/SettingsPage.php:195
 msgctxt "form label"
 msgid "\"Close\" Link Text"
 msgstr "Test Link \"Chiudi\""
 
-#: src/SettingsPage.php:183
+#: src/SettingsPage.php:196
 msgctxt "form label"
 msgid "\"Read More\" URL"
 msgstr "URL link \"Maggiori Informazioni\""
 
-#: src/SettingsPage.php:184
+#: src/SettingsPage.php:197
 msgctxt "form label"
 msgid "\"Read More\" Link Text"
 msgstr "Testo Link \"Maggiori Informazioni\""
 
-#: src/SettingsPage.php:263
+#: src/SettingsPage.php:277
 msgid "User not allowed."
 msgstr "Utente non autorizzato."
 
-#: src/SettingsPage.php:264
+#: src/SettingsPage.php:278
 msgid "An error occurred while saving configuration."
 msgstr "Si è verificato un errore di salvataggio della configurazione."
 
-#: templates/settings.php:16
+#: templates/settings.php:17
+msgctxt "form label"
+msgid "Enable the message on frontend?"
+msgstr "Abilitare il messaggio nel frontend?"
+
+#: templates/settings.php:48
 msgctxt "form label"
 msgid "Shortcodes allowed."
 msgstr "Gli shortcode sono permessi."
 
-#: templates/settings.php:62 templates/settings.php:80
+#: templates/settings.php:100 templates/settings.php:121
 msgctxt "form desc"
 msgid "Leave empty for no \"Read More\" link."
 msgstr "Lascia vuoto per non mostrare alcun link \"Maggiori Informazioni\""
 
-#: templates/settings.php:144
+#: templates/settings.php:185
 msgctxt "settings title"
 msgid "Colors Settings"
 msgstr "Impostazione Colori"
 
-#: templates/settings.php:147
+#: templates/settings.php:188
 msgctxt "settings desc"
 msgid "Ignored if \"Use Styles\" is disabled above."
 msgstr "Ignorate se \"Usa Stili\" qui sopra è impostato su \"No\"."
