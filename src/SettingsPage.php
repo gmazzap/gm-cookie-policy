@@ -40,6 +40,7 @@ class SettingsPage
     public static function defaults()
     {
         return [
+            'enabled'     => 'no',
             'use-style'   => 'yes',
             'use-script'  => 'yes',
             'message'     => '',
@@ -169,6 +170,7 @@ class SettingsPage
             'nonceName'  => self::NONCE_KEY,
             'nonceValue' => wp_create_nonce(self::NONCE_ACTION),
             'values'     => [
+                'enabled'     => $this->config['enabled'],
                 'use-style'   => $this->config['use-style'],
                 'use-script'  => $this->config['use-script'],
                 'bg-color'    => $this->config['bg-color'],
@@ -180,6 +182,7 @@ class SettingsPage
                 'more-label'  => $this->config['more-label'],
             ],
             'labels'     => [
+                'enabled'     => _x('Enable', 'form label', 'gm-cookie-policy'),
                 'message'     => _x('Message', 'form label', 'gm-cookie-policy'),
                 'use-style'   => _x('Use Styles', 'form label', 'gm-cookie-policy'),
                 'use-script'  => _x('Use Script', 'form label', 'gm-cookie-policy'),
@@ -241,10 +244,11 @@ class SettingsPage
 
         $data = filter_input_array(INPUT_POST, [
             self::NONCE_KEY => FILTER_SANITIZE_STRING,
+            'enabled'       => ['filter' => FILTER_CALLBACK, 'options' => $yesNo],
             'use-style'     => ['filter' => FILTER_CALLBACK, 'options' => $yesNo],
             'use-script'    => ['filter' => FILTER_CALLBACK, 'options' => $yesNo],
             'close-label'   => FILTER_SANITIZE_STRING,
-            'more-url'      => FILTER_VALIDATE_URL,
+            'more-url'      => FILTER_SANITIZE_URL,
             'more-label'    => FILTER_SANITIZE_STRING,
             self::EDITOR_ID => ['filter' => FILTER_CALLBACK, 'options' => $message],
             'show-on'       => ['filter' => FILTER_CALLBACK, 'options' => $showOn],
@@ -260,7 +264,7 @@ class SettingsPage
         $data['message'] = $data[self::EDITOR_ID];
         unset($data[self::NONCE_KEY], $data[self::EDITOR_ID]);
 
-        return array_filter($data);
+        return $data;
     }
 
     /**

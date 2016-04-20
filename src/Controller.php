@@ -103,7 +103,7 @@ class Controller
         Message $message = null,
         Assets $assets = null
     ) {
-        if ($this->isAdmin) {
+        if ($this->isAdmin || ! filter_var($config['enabled'], FILTER_VALIDATE_BOOLEAN)) {
             return;
         }
 

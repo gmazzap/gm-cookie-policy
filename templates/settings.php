@@ -11,6 +11,36 @@
         <table class="form-table">
             <tbody>
             <tr>
+                <th scope="row"><?= esc_html($this->labels['enabled']) ?></th>
+                <td>
+                    <p class="description">
+                        <?= esc_html_x('Enable the message on frontend?', 'form label', 'gm-cookie-policy') ?>
+                    </p>
+                    <label for="enabled-yes">
+                        <?= esc_html__('Yes') ?>
+                        <input<?= $this->values['enabled'] === 'yes' ? ' checked' : ''; ?>
+                            type="radio" value="yes"
+                            id="enabled-yes"
+                            name="enabled">
+                    </label>
+
+                    <label for="enabled-no">
+                        <?= esc_html__('No') ?>
+                        <input<?= $this->values['enabled'] === 'no' ? ' checked' : ''; ?>
+                            type="radio" value="no"
+                            id="enabled-no"
+                            name="enabled">
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table class="form-table">
+            <tbody>
+            <tr>
                 <th scope="row"><?= esc_html($this->labels['message']) ?></th>
                 <td>
                     <?php wp_editor($this->message, $this->editorId, $this->editorArgs) ?>
