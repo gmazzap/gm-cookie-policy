@@ -50,8 +50,8 @@ class Config implements \ArrayAccess
      */
     public function __construct(array $liveConfig = [], array $defaults = [])
     {
-        $stored = get_option(self::OPTION, $defaults);
-        $this->stored = new \ArrayObject($stored);
+        $stored = get_option(self::OPTION) ?: [];
+        $this->stored = new \ArrayObject(array_merge($defaults, $stored));
         $liveConfig['capability'] = apply_filters('cookie-policy.config-capability', self::CAP);
         $this->live = new \ArrayObject($liveConfig);
     }
