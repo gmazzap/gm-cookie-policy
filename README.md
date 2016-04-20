@@ -88,7 +88,12 @@ events and set same variable for 100% backward compatibility.
 
 ## Translations
 
-The plugin comes with Italian translation. PRs with more translations are welcome.
+The plugin comes with some translation:
+
+- Italian
+- Romanian (by @rmdiaconu)
+
+PRs with more translations are welcome.
 
 ## License
 
