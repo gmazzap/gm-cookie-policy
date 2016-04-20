@@ -5,117 +5,127 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gm-cookie-policy\n"
-"POT-Creation-Date: 2016-04-18 12:30+0100\n"
-"PO-Revision-Date: 2016-04-18 12:30+0100\n"
+"POT-Creation-Date: 2016-04-20 18:30+0100\n"
+"PO-Revision-Date: 2016-04-20 18:30+0100\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: plurals=2; plural=(n > 1)\n"
 
-#: src/SettingsPage.php:50
+#: src/SettingsPage.php:51
 msgctxt "policy message link text"
 msgid "Close."
 msgstr ""
 
-#: src/SettingsPage.php:52
+#: src/SettingsPage.php:53
 msgctxt "policy message link text"
 msgid "Read more."
 msgstr ""
 
-#: src/SettingsPage.php:81
+#: src/SettingsPage.php:87
 msgctxt "setting title"
 msgid "Cookie Policy Settings"
 msgstr ""
 
-#: src/SettingsPage.php:82
+#: src/SettingsPage.php:88
 msgid "Cookie Policy"
 msgstr ""
 
-#: src/SettingsPage.php:173
+#: src/SettingsPage.php:185
+msgctxt "form label"
+msgid "Enable"
+msgstr ""
+
+#: src/SettingsPage.php:186
 msgctxt "form label"
 msgid "Message"
 msgstr ""
 
-#: src/SettingsPage.php:174
+#: src/SettingsPage.php:187
 msgctxt "form label"
 msgid "Use Styles"
 msgstr ""
 
-#: src/SettingsPage.php:175
+#: src/SettingsPage.php:188
 msgctxt "form label"
 msgid "Use Script"
 msgstr ""
 
-#: src/SettingsPage.php:176
+#: src/SettingsPage.php:189
 msgctxt "form label"
 msgid "Background Color"
 msgstr ""
 
-#: src/SettingsPage.php:177
+#: src/SettingsPage.php:190
 msgctxt "form label"
 msgid "Link Color"
 msgstr ""
 
-#: src/SettingsPage.php:178
+#: src/SettingsPage.php:191
 msgctxt "form label"
 msgid "Text Color"
 msgstr ""
 
-#: src/SettingsPage.php:179
+#: src/SettingsPage.php:192
 msgctxt "form label"
 msgid "Position"
 msgstr ""
 
-#: src/SettingsPage.php:180
+#: src/SettingsPage.php:193
 msgctxt "form label"
 msgid "Header"
 msgstr ""
 
-#: src/SettingsPage.php:181
+#: src/SettingsPage.php:194
 msgctxt "form label"
 msgid "Footer"
 msgstr ""
 
-#: src/SettingsPage.php:182
+#: src/SettingsPage.php:195
 msgctxt "form label"
 msgid "\"Close\" Link Text"
 msgstr ""
 
-#: src/SettingsPage.php:183
+#: src/SettingsPage.php:196
 msgctxt "form label"
 msgid "\"Read More\" URL"
 msgstr ""
 
-#: src/SettingsPage.php:184
+#: src/SettingsPage.php:197
 msgctxt "form label"
 msgid "\"Read More\" Link Text"
 msgstr ""
 
-#: src/SettingsPage.php:263
+#: src/SettingsPage.php:277
 msgid "User not allowed."
 msgstr ""
 
-#: src/SettingsPage.php:264
+#: src/SettingsPage.php:278
 msgid "An error occurred while saving configuration."
 msgstr ""
 
-#: templates/settings.php:16
+#: templates/settings.php:17
+msgctxt "form label"
+msgid "Enable the message on frontend?"
+msgstr ""
+
+#: templates/settings.php:48
 msgctxt "form label"
 msgid "Shortcodes allowed."
 msgstr ""
 
-#: templates/settings.php:62 templates/settings.php:80
+#: templates/settings.php:100 templates/settings.php:121
 msgctxt "form desc"
 msgid "Leave empty for no \"Read More\" link."
 msgstr ""
 
-#: templates/settings.php:144
+#: templates/settings.php:185
 msgctxt "settings title"
 msgid "Colors Settings"
 msgstr ""
 
-#: templates/settings.php:147
+#: templates/settings.php:188
 msgctxt "settings desc"
 msgid "Ignored if \"Use Styles\" is disabled above."
 msgstr ""
