@@ -1,0 +1,123 @@
+# EU Cookie Policy
+# Copyright (C) 2016 Giuseppe Mazzapica
+# This file is distributed under MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: gm-cookie-policy\n"
+"POT-Creation-Date: 2016-04-19 16:45+0300\n"
+"PO-Revision-Date: 2016-04-19 17:05+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.7\n"
+"Last-Translator: \n"
+"Language: ro\n"
+
+#: src/SettingsPage.php:50
+msgctxt "policy message link text"
+msgid "Close."
+msgstr "Închide"
+
+#: src/SettingsPage.php:52
+msgctxt "policy message link text"
+msgid "Read more."
+msgstr "Află mai multe"
+
+#: src/SettingsPage.php:81
+msgctxt "setting title"
+msgid "Cookie Policy Settings"
+msgstr "Setări de politică cookie"
+
+#: src/SettingsPage.php:82
+msgid "Cookie Policy"
+msgstr "Politică de cookie"
+
+#: src/SettingsPage.php:173
+msgctxt "form label"
+msgid "Message"
+msgstr "Mesaj"
+
+#: src/SettingsPage.php:174
+msgctxt "form label"
+msgid "Use Styles"
+msgstr "Stiluri de utilizare"
+
+#: src/SettingsPage.php:175
+msgctxt "form label"
+msgid "Use Script"
+msgstr "Script de utilizare"
+
+#: src/SettingsPage.php:176
+msgctxt "form label"
+msgid "Background Color"
+msgstr "Culoare de fundal"
+
+#: src/SettingsPage.php:177
+msgctxt "form label"
+msgid "Link Color"
+msgstr "Culoare link"
+
+#: src/SettingsPage.php:178
+msgctxt "form label"
+msgid "Text Color"
+msgstr "Culoare text"
+
+#: src/SettingsPage.php:179
+msgctxt "form label"
+msgid "Position"
+msgstr "Poziționare"
+
+#: src/SettingsPage.php:180
+msgctxt "form label"
+msgid "Header"
+msgstr "Antet"
+
+#: src/SettingsPage.php:181
+msgctxt "form label"
+msgid "Footer"
+msgstr "Subsol"
+
+#: src/SettingsPage.php:182
+msgctxt "form label"
+msgid "\"Close\" Link Text"
+msgstr "Text link “Închide”"
+
+#: src/SettingsPage.php:183
+msgctxt "form label"
+msgid "\"Read More\" URL"
+msgstr "URL “Află mai multe”"
+
+#: src/SettingsPage.php:184
+msgctxt "form label"
+msgid "\"Read More\" Link Text"
+msgstr "Link pentru “Află mai multe”"
+
+#: src/SettingsPage.php:263
+msgid "User not allowed."
+msgstr "Utilizatorul nu are permisiune."
+
+#: src/SettingsPage.php:264
+msgid "An error occurred while saving configuration."
+msgstr "A apărut o eroare la salvarea configurației."
+
+#: templates/settings.php:16
+msgctxt "form label"
+msgid "Shortcodes allowed."
+msgstr "Codurile scurte sunt permise."
+
+#: templates/settings.php:62 templates/settings.php:80
+msgctxt "form desc"
+msgid "Leave empty for no \"Read More\" link."
+msgstr "Lasă gol pentru niciun link “Află mai multe”."
+
+#: templates/settings.php:144
+msgctxt "settings title"
+msgid "Colors Settings"
+msgstr "Setări culori"
+
+#: templates/settings.php:147
+msgctxt "settings desc"
+msgid "Ignored if \"Use Styles\" is disabled above."
+msgstr "Ignorat în cazul în care “Stiluri de utilizare” este dezactivat mai sus."
