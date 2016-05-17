@@ -49,17 +49,13 @@ class Cookie
         $url = parse_url(home_url());
         $host = isset($url['host']) ? $url['host'] : null;
 
-        $path = apply_filters('cookie-policy.cookie-path', '/');
-        $host = apply_filters('cookie-policy.cookie-host', $host);
-        $secure = apply_filters('cookie-policy.cookie-secure',  is_ssl());
-
         return setcookie(
             self::COOKIE,
             $now,
             $now + self::expiration(),
-            $path,
+            '/',
             $host,
-            $secure,
+            is_ssl(),
             true
         );
     }

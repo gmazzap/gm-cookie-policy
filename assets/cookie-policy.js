@@ -9,7 +9,7 @@ var cookiePolicy = window.cookiePolicy || {};
     CP.cookie.expire = CP.cookie.expire || 0;
     CP.accepted = CP.accepted || false;
 
-    
+
     // When document is loaded we set `window.cookiePolicy.accepted` to proper value so it can be
     // checked but other scripts.
     $(document).ready(function () {
@@ -34,7 +34,7 @@ var cookiePolicy = window.cookiePolicy || {};
         $('#gm-cookie-policy').hide();
 
         // Set cookie
-        document.cookie = CP.cookie.name + '=' + value + '; expires=' + d.toUTCString();
+        document.cookie = CP.cookie.name + '=' + value + '; expires=' + d.toUTCString() + '; path=/';
 
         // Fire event that can be used to initialize some features only when user accepted cookies.
         var event = $.Event('cookie-policy-accepted');
